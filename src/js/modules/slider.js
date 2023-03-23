@@ -1,4 +1,4 @@
-export default class Slider {
+class Slider {
     constructor(page, btns){
         this.page = document.querySelector(page);
         this.slides = this.page.children;
@@ -15,9 +15,12 @@ export default class Slider {
             this.slideIndex = this.slides.length;
         }
 
+        this.slides = [...this.page.children];
+
         this.slides.forEach(slide => {
             slide.style.display = 'none';
         });
+
 
         this.slides[this.slideIndex - 1].style.display = 'block';
     }
@@ -42,3 +45,5 @@ export default class Slider {
         this.showSlides(this.slideIndex);
     }
 }
+
+export default Slider;
